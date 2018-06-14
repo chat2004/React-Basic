@@ -24,11 +24,11 @@ class App extends PureComponent {
   }
 
   componentWillMount() {
-    console.log('[App.js] inside componentWillMount!!')
+    console.log('[App.js] inside componentWillMount!!');
   }
 
   componentDidMount() {
-    console.log('[App.js] inside componentDidMount()!!')
+    console.log('[App.js] inside componentDidMount()!!');
   }
 
   // shouldComponentUpdate(nextProps, nextState) {
@@ -37,11 +37,11 @@ class App extends PureComponent {
   // }
 
   componentWillUpdate(nextProps, nextState) {
-      console.log('[UPDATE App.js] inside componentWillUpdate!!', nextProps, nextState)
+      console.log('[UPDATE App.js] inside componentWillUpdate!!', nextProps, nextState);
   }
 
   componentDidUpdate() {
-      console.log('[UPDATE App.js] inside componentDidUpdate!!')
+      console.log('[UPDATE App.js] inside componentDidUpdate!!');
   }
 
   // state = {

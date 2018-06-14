@@ -6,20 +6,21 @@ class Persons extends PureComponent {
 
     constructor(props) {
         super(props);
-        console.log('[Persons.js] inside constructor!!', props)
-        
+        console.log('[Persons.js] inside constructor!!', props);
+        this.lastPersonRef = React.createRef();
       }
     
     componentWillMount() {
-    console.log('[Persons.js] inside componentWillMount!!')
+        console.log('[Persons.js] inside componentWillMount!!');
     }
 
     componentDidMount() {
-    console.log('[Persons.js] inside componentDidMount()!!')
+        console.log('[Persons.js] inside componentDidMount()!!');
+        this.lastPersonRef.current.focus();
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('[UPDATE Persons.js] inside componentWillReceiveProps!!', nextProps)
+        console.log('[UPDATE Persons.js] inside componentWillReceiveProps!!', nextProps);
     }
 
     // shouldComponentUpdate(nextProps, nextState) {
@@ -31,11 +32,11 @@ class Persons extends PureComponent {
     // }
 
     componentWillUpdate(nextProps, nextState) {
-        console.log('[UPDATE Persons.js] inside componentWillUpdate!!', nextProps, nextState)
+        console.log('[UPDATE Persons.js] inside componentWillUpdate!!', nextProps, nextState);
     }
 
     componentDidUpdate() {
-        console.log('[UPDATE Persons.js] inside componentDidUpdate!!')
+        console.log('[UPDATE Persons.js] inside componentDidUpdate!!');
     }
 
     render () {
@@ -46,6 +47,8 @@ class Persons extends PureComponent {
               name={person.name} 
               age={person.age} 
               key={person.id} 
+              position={index}
+              ref={this.lastPersonRef}
               changed={(event) => this.props.changed(event, person.id)} />
           });
     }
