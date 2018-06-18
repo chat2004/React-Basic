@@ -2,13 +2,13 @@
     margin: 10px 0;
     box-sizing: border-box;
     display: block;
-    height: 100%;
+    width: 100%;
 }
 
 .NavigationItem a {
     color: #8F5C2C;
     text-decoration: none;
-    height: 100%;
+    width: 100%;
     box-sizing: border-box;
     display: block;
 }
@@ -16,7 +16,7 @@
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active {
-    color: #40a4c8;
+    color: #40A4C8;
 }
 
 @media (min-width: 500px) {
@@ -39,7 +39,7 @@
     .NavigationItem a:active,
     .NavigationItem a.active {
         background-color: #8F5C2C;
-        border-bottom: 4px solid #40a4c8;
+        border-bottom: 4px solid #40A4C8;
         color: white;
     }
 }

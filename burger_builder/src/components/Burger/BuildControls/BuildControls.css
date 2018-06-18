@@ -9,11 +9,9 @@
     padding: 10px 0;
 }
 
-
 .OrderButton {
     background-color: #DAD735;
     outline: none;
-    margin-top: 5px;
     cursor: pointer;
     border: 1px solid #966909;
     color: #966909;
