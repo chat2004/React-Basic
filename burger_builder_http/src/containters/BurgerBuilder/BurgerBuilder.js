@@ -28,13 +28,19 @@ class BurgerBuilder extends Component {
         totalPrice: 4,
         purchaseable: false,
         purchasing: false,
-        loading: false
+        loading: false,
+        error: null
     };
 
     componentDidMount() {
         axios.get('/ingredients.json')
             .then(response => {
                 this.setState({ingredients: response.data});
+                this.updatePurchaseState(this.state.ingredients);
+                this.updateTotalPrice(this.state.ingredients);
+            })
+            .catch(error => {
+                this.setState({error: true});
             });
     }
 
@@ -75,6 +81,19 @@ class BurgerBuilder extends Component {
         const newPrice = oldPrice - priceDeduction;
         this.setState({totalPrice: newPrice, ingredients: updatedIngredients});
         this.updatePurchaseState(updatedIngredients);
+    }
+
+    updateTotalPrice(ingredients) {
+        console.log('updateTotalPrice');
+        const sum = Object.keys(ingredients)
+            .map(igKey => {
+                return ingredients[igKey] * INGREDIENT_PRICE[igKey];
+            })
+            .reduce((sum, el) => {
+                return sum + el;
+            }, this.state.totalPrice);
+
+        this.setState({totalPrice: sum});
     }
 
     purchaseHandler = () => {
@@ -122,7 +141,7 @@ class BurgerBuilder extends Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
         let orderSummary = null;
-        let burger = <Spinner />
+        let burger = this.state.error ? <p>Ingredients can't be loaded</p> : <Spinner />;
 
         if (this.state.ingredients) {
             orderSummary = <OrderSummary 
