@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 const asyncComponent = (importComponent) => {
     return class extends Component {
@@ -8,17 +8,17 @@ const asyncComponent = (importComponent) => {
 
         componentDidMount () {
             importComponent()
-                .then( cmp => {
+                .then(cmp => {
                     this.setState({component: cmp.default});
                 });
         }
-
+        
         render () {
-            const C = this.state.Component;
+            const C = this.state.component;
 
             return C ? <C {...this.props} /> : null;
         }
-    };
-};
+    }
+}
 
 export default asyncComponent;

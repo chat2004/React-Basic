@@ -7,6 +7,7 @@ import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containters/BurgerBuilder/BurgerBuilder';
 import Logout from './containters/Auth/Logout/Logout';
 import * as actions from './store/actions/index'
+import Auth from './containters/Auth/Auth';
 
 const asyncCheckout = asyncComponent(() => {
   return import('./containters/Checkout/Checkout');
